@@ -3,6 +3,6 @@
 	<hr/>
 	<label>User Name : </label>
 	<input type="text" />
-	<input type="button" value="Greet" />
-	<div class="message">[Dummy greet message]</div>
+	<input type="button" value="Greet" (click)="onGreetClick()"/>
+	<div class="message">{{greetMessage}}</div>
 </div>
