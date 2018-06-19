@@ -9,8 +9,8 @@ export class GreeterComponent{
 
 	greetMessage : string = '[A sample greet message]';
 
-	onGreetClick(){
-		let userName = prompt('Enter the user name :');
+	onGreetClick(userName){
+		//let userName = prompt('Enter the user name :');
 		this.greetMessage = `Hi ${userName}, Have a nice day!`;
 	}
 
