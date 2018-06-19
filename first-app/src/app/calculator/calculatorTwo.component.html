@@ -12,4 +12,4 @@
 <input type="number" (change)="n2 = $event.target.valueAsNumber">
 <input type="button" value="Calculate" (click)="onCalculateClick()">
 <br>
-<div>{{result}}</div>
+<app-calculator-result [result]="result"></app-calculator-result>
