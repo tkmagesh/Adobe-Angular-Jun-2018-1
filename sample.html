@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sample</title>
+	<script>
+		(function(){
+			window.addEventListener('DOMContentLoaded', init);
+			function init(){
+				var btnDoWork = document.getElementById('btnDoWork');
+				btnDoWork.addEventListener('click', onDoWorkClick);
+			}
+			function onDoWorkClick(){
+				console.log('App work initiated');
+			}
+		})();
+	</script>
+</head>
+<body>
+	<input type="button" value="Do Work" id="btnDoWork" >
+</body>
+</html>
