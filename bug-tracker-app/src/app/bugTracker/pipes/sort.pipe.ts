@@ -15,11 +15,19 @@ export class SortPipe{
 	        return 0;
 	    }
 	}
+
+	private getDescending(comparer : Comparer) : Comparer{
+		return function(p1 : any, p2 : any) : number {
+			return comparer(p1, p2) * -1;
+		}
+	}
 	
-	transform(data : any[], attr : string) : any[]{
+	transform(data : any[], attr : string, desc : boolean = false) : any[]{
 		if (!data || !data.length) return data;
 		if (!attr) return data.sort();
 		let comparer = this.getComparer(attr);
+		if (desc)
+			comparer = this.getDescending(comparer);
 		return data.sort(comparer);
 
 	}
