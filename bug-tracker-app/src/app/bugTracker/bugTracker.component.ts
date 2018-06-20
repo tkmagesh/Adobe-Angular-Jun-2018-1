@@ -10,6 +10,15 @@ export class BugTrackerComponent{
 	
 	newBugName : string = '';
 
+	sortAttr : string = 'name';
+	
+	constructor(){
+		this.bugs.push({name : 'Server communication failure', isClosed : false});
+		this.bugs.push({name : 'User actions not recognised', isClosed : false});
+		this.bugs.push({name : 'Data integrity checks failed', isClosed : false});
+		this.bugs.push({name : 'Application is not responsive', isClosed : false});
+	}
+
 	onAddNewClick(){
 		let newBug = {
 			name : this.newBugName,
