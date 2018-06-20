@@ -8,13 +8,16 @@ import { Bug } from './models/Bug';
 })
 export class BugTrackerComponent{
 	bugs : Bug[] = [];
+	
+	newBugName : string = '';
 
-	onAddNewClick(bugName){
+	onAddNewClick(){
 		let newBug = {
-			name : bugName,
+			name : this.newBugName,
 			isClosed : false
 		};
 		this.bugs.push(newBug);
+		this.newBugName = '';
 	}
 
 	onBugNameClick(bugToToggle){
@@ -23,5 +26,10 @@ export class BugTrackerComponent{
 
 	onRemoveClosedClick(){
 		this.bugs = this.bugs.filter(bug => !bug.isClosed);
+	}
+
+	getClosedCount(){
+		console.log('getClosedCount triggered');
+		return this.bugs.reduce((result, bug) => bug.isClosed ? ++result : result, 0);
 	}
 }
