@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Bug } from './models/Bug';
 
-
 @Component({
 	selector : 'app-bug-tracker',
 	templateUrl : 'bugTracker.component.html'
@@ -29,7 +28,6 @@ export class BugTrackerComponent{
 	}
 
 	getClosedCount(){
-		console.log('getClosedCount triggered');
 		return this.bugs.reduce((result, bug) => bug.isClosed ? ++result : result, 0);
 	}
 }
