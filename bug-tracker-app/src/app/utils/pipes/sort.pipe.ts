@@ -24,7 +24,6 @@ export class SortPipe{
 	}
 	
 	transform(data : any[], attr : string, desc : boolean = false) : any[]{
-		console.log('sort transform triggered');
 		if (!data || !data.length) return data;
 		if (!attr) return data.sort();
 		let comparer = this.getComparer(attr);
