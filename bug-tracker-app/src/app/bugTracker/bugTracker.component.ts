@@ -14,29 +14,13 @@ export class BugTrackerComponent{
 	sortAttr : string = 'name';
 	sortDesc : boolean = false;
 
-	/*bugOperations : BugOperationsService = null;
-
-	constructor(_bugOperations : BugOperationsService){
-		this.bugOperations = _bugOperations;
-	}*/
-
 	constructor(private bugOperations : BugOperationsService){
-		this.bugs.push(this.bugOperations.createNew('Server communication failure'));
-		this.bugs.push(this.bugOperations.createNew('User actions not recognised'));
-		this.bugs.push(this.bugOperations.createNew('Data integrity checks failed'));
-		this.bugs.push(this.bugOperations.createNew('Application is not responsive'));
+		this.bugs = this.bugOperations.getAll();
 	}
 
-	/*constructor(){
-		this.bugs.push(this.bugOperations.createNew('Server communication failure'));
-		this.bugs.push(this.bugOperations.createNew('User actions not recognised'));
-		this.bugs.push(this.bugOperations.createNew('Data integrity checks failed'));
-		this.bugs.push(this.bugOperations.createNew('Application is not responsive'));
-	}*/
 
 	onAddNewClick(){
 		let newBug = this.bugOperations.createNew(this.newBugName);
-		//this.bugs.push(newBug);
 		this.bugs = [...this.bugs, newBug];
 		this.newBugName = '';
 	}
@@ -47,11 +31,10 @@ export class BugTrackerComponent{
 	}
 
 	onRemoveClosedClick(){
+		this.bugs
+			.filter(bug => bug.isClosed)
+			.forEach(closedBug => this.bugOperations.remove(closedBug));
+
 		this.bugs = this.bugs.filter(bug => !bug.isClosed);
 	}
-
-	//Convert the following into 'closedCount' pipe (input : bugs)
-	/*getClosedCount(){
-		return this.bugs.reduce((result, bug) => bug.isClosed ? ++result : result, 0);
-	}*/
 }
