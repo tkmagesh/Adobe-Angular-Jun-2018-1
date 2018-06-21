@@ -42,7 +42,8 @@ export class BugTrackerComponent{
 	}
 
 	onBugNameClick(bugToToggle){
-		this.bugOperations.toggle(bugToToggle);
+		let toggledBug = this.bugOperations.toggle(bugToToggle);
+		this.bugs = this.bugs.map(bug => bug === bugToToggle ? toggledBug : bug);
 	}
 
 	onRemoveClosedClick(){
@@ -50,7 +51,7 @@ export class BugTrackerComponent{
 	}
 
 	//Convert the following into 'closedCount' pipe (input : bugs)
-	getClosedCount(){
+	/*getClosedCount(){
 		return this.bugs.reduce((result, bug) => bug.isClosed ? ++result : result, 0);
-	}
+	}*/
 }
