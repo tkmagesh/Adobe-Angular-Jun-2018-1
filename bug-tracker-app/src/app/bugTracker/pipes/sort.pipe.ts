@@ -4,7 +4,8 @@ interface Comparer{
 	(p1 : any, p2 : any) : number
 }
 @Pipe({
-	name : 'sort'
+	name : 'sort',
+	pure : true
 })
 export class SortPipe{
 
@@ -23,6 +24,7 @@ export class SortPipe{
 	}
 	
 	transform(data : any[], attr : string, desc : boolean = false) : any[]{
+		console.log('sort transform triggered');
 		if (!data || !data.length) return data;
 		if (!attr) return data.sort();
 		let comparer = this.getComparer(attr);
