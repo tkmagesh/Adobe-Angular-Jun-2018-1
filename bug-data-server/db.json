@@ -1,26 +1,26 @@
 {
-	"bugs" : [
-		{
-			"id":1,
-			"name":"Server communication failure",
-			"isClosed":false,
-			"createdAt":"2018-06-16T05:28:50.545Z"
-		},
-		{
-			"id":2,
-			"name":"Application not responding",
-			"isClosed":true,
-			"createdAt":"2018-06-17T05:28:50.545Z"
-		}
-	],
-	"projects" : [
-		{
-			"id" : 1,
-			"name" : "Bug Tracker"
-		},
-		{
-			"id" : 2,
-			"name" : "Payroll Master"
-		}
-	]
+  "bugs": [
+    {
+      "id": 1,
+      "name": "Server communication failure",
+      "isClosed": false,
+      "createdAt": "2018-06-16T05:28:50.545Z"
+    },
+    {
+      "id": 3,
+      "name": "Data integrity checks failed",
+      "isClosed": false,
+      "createdAt": "2018-06-22T05:26:49.984Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Bug Tracker"
+    },
+    {
+      "id": 2,
+      "name": "Payroll Master"
+    }
+  ]
 }
