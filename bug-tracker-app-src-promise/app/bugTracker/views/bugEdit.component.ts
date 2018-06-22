@@ -32,13 +32,10 @@ export class BugEditComponent{
 		
 	}*/
 
-	onAddNewClick(){
-		this.bugOperations
-			.createNew(this.newBugName)
-			.subscribe(newBug => {
-				this.newBugCreated.emit(newBug);
-				this.newBugName = '';				
-			});
+	async onAddNewClick(){
+		let newBug = await this.bugOperations.createNew(this.newBugName);
+		this.newBugCreated.emit(newBug);
+		this.newBugName = '';		
 	}
 
 }
