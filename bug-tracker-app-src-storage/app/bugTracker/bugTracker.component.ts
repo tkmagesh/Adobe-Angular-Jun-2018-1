@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { Bug } from './models/Bug';
 import { BugOperationsService } from './services/bugOperations.services';
-import axios from 'axios';
-
-window['axios'] = axios;
 
 @Component({
 	selector : 'app-bug-tracker',
