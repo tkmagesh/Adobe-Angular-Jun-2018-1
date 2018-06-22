@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter} from '@angular/core';
 import { BugOperationsService } from '../services/bugOperations.services';
 import { Bug } from '../models/Bug';
+import { Router } from '@angular/router';
 
 @Component({
 	selector : 'app-bug-edit',
@@ -19,7 +20,8 @@ export class BugEditComponent{
 	@Output()
 	newBugCreated : EventEmitter<Bug> = new EventEmitter<Bug>();
 
-	constructor(private bugOperations : BugOperationsService){
+	constructor(private bugOperations : BugOperationsService,
+		private router : Router){
 
 	}
 	/*onAddNewClick(){
@@ -36,8 +38,7 @@ export class BugEditComponent{
 		this.bugOperations
 			.createNew(this.newBugName)
 			.subscribe(newBug => {
-				this.newBugCreated.emit(newBug);
-				this.newBugName = '';				
+				this.router.navigate(['bugs']);		
 			});
 	}
 

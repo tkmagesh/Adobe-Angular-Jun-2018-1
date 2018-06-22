@@ -26,6 +26,11 @@ export class BugServerService {
 			.get<Bug[]>(this.baseUrl);
 			
 	}
+	get(id) : Observable<Bug>{
+		return this.httpClient
+			.get<Bug>(`${this.baseUrl}/${id}`);
+	}
+	
 	remove(bugData : Bug) : Observable<any>{
 		return this.httpClient
 			.delete<any>(`${this.baseUrl}/${bugData.id}`);
