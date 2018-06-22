@@ -22,7 +22,7 @@ export class BugEditComponent{
 	constructor(private bugOperations : BugOperationsService){
 
 	}
-	onAddNewClick(){
+	/*onAddNewClick(){
 		this.bugOperations
 			.createNew(this.newBugName)
 			.then(newBug => {
@@ -30,6 +30,12 @@ export class BugEditComponent{
 				this.newBugName = '';		
 			});
 		
+	}*/
+
+	async onAddNewClick(){
+		let newBug = await this.bugOperations.createNew(this.newBugName);
+		this.newBugCreated.emit(newBug);
+		this.newBugName = '';		
 	}
 
 }
